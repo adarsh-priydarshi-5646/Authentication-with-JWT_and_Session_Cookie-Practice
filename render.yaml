@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: auth-backend
+    env: node
+    plan: free
+    buildCommand: npm install && npx prisma generate && npx prisma migrate deploy
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://postgres.fokkrjuacyggtlbxtqpk:Adarshpriydarshi@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true
+      - key: DIRECT_URL
+        value: postgresql://postgres.fokkrjuacyggtlbxtqpk:Adarshpriydarshi@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        value: 7c925fde8c35f997b007e98560dfc4cc
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLIENT_ORIGIN
+        value: https://authentication-with-jwt-and-session.vercel.app
+      - key: GITHUB_CLIENT_ID
+        value: Ov23liBfCfuBGvWApXMX
+      - key: GITHUB_CLIENT_SECRET
+        value: d720a21032fbbe2627e01aa6a903b23a56aa734e
+      - key: GITHUB_CALLBACK_URL
+        value: https://authentication-with-jwt-and-session.onrender.com/auth/github/callback
+      - key: SESSION_SECRET
+        value: github_oauth_session_secret_key_12345
