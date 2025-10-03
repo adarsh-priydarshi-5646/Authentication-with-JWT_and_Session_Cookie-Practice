@@ -1,6 +1,15 @@
 import axios from 'axios';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+// Smart API URL detection based on environment
+const getApiBaseUrl = () => {
+  const isProduction = window.location.hostname !== 'localhost';
+  if (isProduction) {
+    return 'https://authentication-with-jwt-and-session.onrender.com';
+  }
+  return import.meta.env.VITE_API_URL || 'http://localhost:8080';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,

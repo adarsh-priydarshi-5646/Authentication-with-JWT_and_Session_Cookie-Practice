@@ -76,7 +76,7 @@ const login = async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production", // only HTTPS
       maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-      sameSite: "strict",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "strict", // Allow cross-site cookies in production
     });
 
     return res.status(200).json({ message: "Login successful", token });
