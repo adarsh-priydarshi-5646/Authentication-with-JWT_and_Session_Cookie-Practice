@@ -50,7 +50,11 @@ const SignUp = () => {
   };
 
   const handleGitHubSignUp = () => {
-    const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+    // Use production URL if on production, otherwise use env variable
+    const isProduction = window.location.hostname !== 'localhost';
+    const API_BASE_URL = isProduction 
+      ? 'https://authentication-with-jwt-and-session.onrender.com'
+      : (import.meta.env.VITE_API_URL || 'http://localhost:8080');
     window.location.href = `${API_BASE_URL}/auth/github`;
   };
 
