@@ -39,7 +39,8 @@ router.get(
     });
 
     // Redirect to frontend dashboard
-    res.redirect(`${process.env.CLIENT_ORIGIN}/dashboard`);
+    const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+    res.redirect(`${clientOrigin}/dashboard`);
   }
 );
 
