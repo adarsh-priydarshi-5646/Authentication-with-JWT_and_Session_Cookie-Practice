@@ -50,6 +50,13 @@ const login = async (req, res) => {
         .json({ message: "User not found, please sign up" });
     }
 
+    // Check if user has a password (local auth) or is OAuth user
+    if (!user.password) {
+      return res.status(400).json({ 
+        message: "This account was created with OAuth. Please use the OAuth login option." 
+      });
+    }
+
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {

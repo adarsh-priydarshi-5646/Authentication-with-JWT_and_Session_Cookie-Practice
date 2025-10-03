@@ -29,20 +29,28 @@ const SignUp = () => {
     setValidationErrors([]);
 
     try {
+      console.log('Attempting signup with:', { name: formData.name, email: formData.email });
       const response = await authAPI.signUp(formData);
+      console.log('Signup response:', response);
       alert(response.message || 'Sign up successful!');
       navigate('/login');
     } catch (err) {
-      console.error('Sign up error:', err.response?.data);
+      console.error('Sign up error details:', {
+        message: err.message,
+        response: err.response?.data,
+        status: err.response?.status,
+        statusText: err.response?.statusText
+      });
       
       // Handle validation errors from Zod
-      if (err.response?.data?.errors) {
-        setValidationErrors(err.response.data.errors);
+      if (err.response?.data?.issues) {
+        setValidationErrors(err.response.data.issues);
+      } else if (err.response?.data?.message) {
+        setError(err.response.data.message);
+      } else if (err.code === 'ERR_NETWORK') {
+        setError('Cannot connect to server. Please check if the backend is running.');
       } else {
-        setError(
-          err.response?.data?.message || 
-          'Something went wrong. Please try again.'
-        );
+        setError('Something went wrong. Please try again.');
       }
     } finally {
       setLoading(false);

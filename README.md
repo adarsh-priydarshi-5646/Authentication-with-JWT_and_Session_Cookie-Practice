@@ -1,10 +1,11 @@
 # 🔐 Authentication with JWT and Session Cookie Practice
 
-A Node.js/Express backend application implementing secure authentication using JWT tokens and HTTP-only cookies with Prisma ORM and MySQL database.
+A full-stack authentication application with Node.js/Express backend and React frontend, implementing secure authentication using JWT tokens, HTTP-only cookies, OAuth (GitHub), and Prisma ORM with PostgreSQL database.
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
@@ -12,13 +13,15 @@ A Node.js/Express backend application implementing secure authentication using J
 ## Features
 
 - **User Registration & Login** - Secure user authentication system
+- **OAuth Integration** - GitHub OAuth authentication
 - **JWT Token Authentication** - JSON Web Token based authentication
 - **HTTP-Only Cookies** - Secure session management with HTTP-only cookies
 - **Password Hashing** - Bcrypt password encryption
 - **Input Validation** - Zod schema validation for request data
 - **Rate Limiting** - Protection against brute force attacks
 - **CORS Support** - Cross-origin resource sharing enabled
-- **Prisma ORM** - Type-safe database operations with MySQL
+- **Prisma ORM** - Type-safe database operations with PostgreSQL
+- **React Frontend** - Modern React frontend with routing and API integration
 
 ## Tech Stack
 
