@@ -16,12 +16,20 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
+// Dynamic callback URL based on environment
+const getGitHubCallbackURL = () => {
+  if (process.env.NODE_ENV === 'production') {
+    return 'https://authentication-with-jwt-and-session.onrender.com/auth/github/callback';
+  }
+  return process.env.GITHUB_CALLBACK_URL || 'http://localhost:8080/auth/github/callback';
+};
+
 passport.use(
   new GitHubStrategy(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: process.env.GITHUB_CALLBACK_URL,
+      callbackURL: getGitHubCallbackURL(),
     },
     async (accessToken, refreshToken, profile, done) => {
       try {

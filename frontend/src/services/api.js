@@ -19,6 +19,44 @@ const api = axios.create({
   },
 });
 
+// Add request interceptor for debugging
+api.interceptors.request.use(
+  (config) => {
+    console.log('API Request:', {
+      url: config.url,
+      baseURL: config.baseURL,
+      method: config.method,
+      data: config.data
+    });
+    return config;
+  },
+  (error) => {
+    console.error('Request Error:', error);
+    return Promise.reject(error);
+  }
+);
+
+// Add response interceptor for debugging
+api.interceptors.response.use(
+  (response) => {
+    console.log('API Response:', {
+      url: response.config.url,
+      status: response.status,
+      data: response.data
+    });
+    return response;
+  },
+  (error) => {
+    console.error('API Error:', {
+      url: error.config?.url,
+      status: error.response?.status,
+      message: error.response?.data?.message,
+      data: error.response?.data
+    });
+    return Promise.reject(error);
+  }
+);
+
 // Auth API calls
 export const authAPI = {
   signUp: async (userData) => {

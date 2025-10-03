@@ -46,7 +46,10 @@ app.get('/health', (req, res) => {
     message: 'Server is running',
     timestamp: new Date().toISOString(),
     environment: process.env.NODE_ENV,
-    clientOrigin: process.env.CLIENT_ORIGIN
+    clientOrigin: process.env.CLIENT_ORIGIN,
+    githubCallbackURL: process.env.NODE_ENV === 'production' 
+      ? 'https://authentication-with-jwt-and-session.onrender.com/auth/github/callback'
+      : process.env.GITHUB_CALLBACK_URL
   });
 });
 
