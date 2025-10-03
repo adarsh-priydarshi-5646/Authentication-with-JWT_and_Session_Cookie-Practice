@@ -2,9 +2,13 @@
 
 <div align="center">
 
-![Authentication Banner](https://via.placeholder.com/800x200/667eea/ffffff?text=🔐+JWT+%26+Session+Authentication)
+![Authentication Banner](https://capsule-render.vercel.app/api?type=waving&color=667eea&height=200&section=header&text=🔐%20JWT%20Authentication&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Full-Stack%20Authentication%20System%20with%20JWT%20%26%20Session%20Cookies&descAlignY=55&descAlign=50)
 
-**A complete, secure, and production-ready authentication system built with modern technologies**
+<h3 align="center">🚀 A complete, secure, and production-ready authentication system built with modern technologies 🚀</h3>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=667EEA&center=true&vCenter=true&width=435&lines=JWT+%26+Session+Authentication;GitHub+OAuth+Integration;Secure+%26+Production+Ready;Modern+React+Frontend;Node.js+%26+Express+Backend" alt="Typing SVG" />
+</p>
 
 [![GitHub Stars](https://img.shields.io/github/stars/adarsh-priydarshi-5646/Authentication-with-JWT_and_Session_Cookie-Practice?style=social)](https://github.com/adarsh-priydarshi-5646/Authentication-with-JWT_and_Session_Cookie-Practice)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -334,8 +338,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
+![Footer Banner](https://capsule-render.vercel.app/api?type=waving&color=667eea&height=120&section=footer&text=Thank%20You!&fontSize=30&fontColor=ffffff&animation=fadeIn)
+
 **⭐ Star this repository if you found it helpful!**
 
-Made with ❤️ by [Adarsh Priydarshi](https://github.com/adarsh-priydarshi-5646)
+<p>
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=667EEA&center=true&vCenter=true&width=300&lines=Made+with+❤️;By+Adarsh+Priydarshi;Happy+Coding!+🚀" alt="Footer Typing SVG" />
+</p>
+
+[![GitHub](https://img.shields.io/badge/Follow-adarsh--priydarshi--5646-blue?style=social&logo=github)](https://github.com/adarsh-priydarshi-5646)
 
 </div>
