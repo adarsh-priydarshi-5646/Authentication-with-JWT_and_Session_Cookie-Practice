@@ -10,23 +10,13 @@ const TestConnection = () => {
     setStatus('Testing connection...');
     
     try {
-      // Test basic connection using health endpoint
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
       const response = await axios.get(`${API_URL}/health`, {
         withCredentials: true,
-        timeout: 30000 // 30 seconds for Render cold starts
       });
-      setStatus(`Backend connection successful! 
-Backend URL: ${API_URL}
-Response: ${JSON.stringify(response.data, null, 2)}`);
+      setStatus(`Backend connection successful! ${JSON.stringify(response.data, null, 2)}`);
     } catch (err) {
-      if (err.code === 'ERR_NETWORK') {
-        setStatus('Cannot connect to backend. Backend might be starting up (Render cold start) or check URL.');
-      } else if (err.code === 'ECONNABORTED') {
-        setStatus('Request timeout. Backend is probably starting up (Render cold start). Please wait and try again.');
-      } else {
-        setStatus(`Error: ${err.message}`);
-      }
+      setStatus(`Error: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -46,14 +36,12 @@ Response: ${JSON.stringify(response.data, null, 2)}`);
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
       const response = await axios.post(`${API_URL}/auth/signup`, testUser, {
         withCredentials: true,
-        timeout: 30000,
         headers: {
           'Content-Type': 'application/json',
         }
       });
       setStatus(`Signup successful! ${JSON.stringify(response.data)}`);
     } catch (err) {
-      console.error('Signup test error:', err.response?.data);
       setStatus(`Signup error: ${JSON.stringify(err.response?.data || err.message)}`);
     } finally {
       setLoading(false);
@@ -73,14 +61,12 @@ Response: ${JSON.stringify(response.data, null, 2)}`);
       const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
       const response = await axios.post(`${API_URL}/auth/login`, loginData, {
         withCredentials: true,
-        timeout: 30000,
         headers: {
           'Content-Type': 'application/json',
         }
       });
       setStatus(`Login successful! ${JSON.stringify(response.data)}`);
     } catch (err) {
-      console.error('Login test error:', err);
       setStatus(`Login error: ${JSON.stringify(err.response?.data || err.message)}`);
     } finally {
       setLoading(false);

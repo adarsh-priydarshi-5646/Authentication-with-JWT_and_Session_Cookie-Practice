@@ -8,12 +8,10 @@ const {
   deleteUserById,
 } = require("../controllers/userController.js");
 const authMiddleware = require("../middlewares/authMiddleware.js");
-const validate = require("../middlewares/validateMiddleware");
-const { idParamSchema, updateUserSchema } = require("../validators/user.validators");
 
 router.get("/", authMiddleware, getUser);
-router.get("/:id", authMiddleware, validate(idParamSchema, "params"), getUserById);
-router.put("/:id", authMiddleware, validate(idParamSchema, "params"), validate(updateUserSchema, "body"), updateUserById);
-router.delete("/:id", authMiddleware, validate(idParamSchema, "params"), deleteUserById);
+router.get("/:id", authMiddleware, getUserById);
+router.put("/:id", authMiddleware, updateUserById);
+router.delete("/:id", authMiddleware, deleteUserById);
 
 module.exports = router;

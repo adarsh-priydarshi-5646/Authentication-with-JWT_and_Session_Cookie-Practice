@@ -26,34 +26,15 @@ const Login = () => {
     setError('');
 
     try {
-      console.log('Attempting login with:', { email: formData.email });
       const response = await authAPI.login(formData);
-      console.log('Login response:', response);
       alert(response.message || 'Login successful!');
-      // Store token if needed (though it's in httpOnly cookie)
-      if (response.token) {
-        localStorage.setItem('token', response.token);
-      }
       navigate('/dashboard');
     } catch (err) {
-      console.error('Login error details:', {
-        message: err.message,
-        response: err.response?.data,
-        status: err.response?.status,
-        statusText: err.response?.statusText
-      });
-      
-      if (err.response?.data?.message) {
-        setError(err.response.data.message);
-      } else if (err.response?.status === 404) {
-        setError('User not found. Please check your email or sign up.');
-      } else if (err.response?.status === 401) {
-        setError('Invalid credentials. Please check your password.');
-      } else if (err.code === 'ERR_NETWORK') {
-        setError('Cannot connect to server. Please check if the backend is running.');
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
+      console.error('Login error:', err.response?.data);
+      setError(
+        err.response?.data?.message || 
+        'Something went wrong. Please try again.'
+      );
     } finally {
       setLoading(false);
     }
