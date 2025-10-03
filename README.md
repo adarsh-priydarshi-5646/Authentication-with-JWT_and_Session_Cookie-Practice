@@ -1,8 +1,11 @@
 # 🔐 Full-Stack Authentication System
 
 <div align="center">
+  
+<p align="center">
+  <img src="https://static.vecteezy.com/system/resources/previews/016/071/197/non_2x/desktop-login-isometric-illustration-light-gradient-suitable-for-mobile-app-website-banner-diagrams-infographics-and-other-graphic-assets-vector.jpg"  alt="Logo" width="150" height="150"/>
+</p>
 
-![Authentication Banner](https://capsule-render.vercel.app/api?type=waving&color=667eea&height=200&section=header&text=🔐%20JWT%20Authentication&fontSize=40&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Full-Stack%20Authentication%20System%20with%20JWT%20%26%20Session%20Cookies&descAlignY=55&descAlign=50)
 
 <h3 align="center">🚀 A complete, secure, and production-ready authentication system built with modern technologies 🚀</h3>
 
