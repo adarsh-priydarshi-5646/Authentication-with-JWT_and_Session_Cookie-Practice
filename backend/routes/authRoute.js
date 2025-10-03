@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const passport = require('../config/passport.config');
+const jwt = require('jsonwebtoken');
 
 const authMiddleware = require('../middlewares/authMiddleware.js')
 const validate = require("../middlewares/validateMiddleware");
@@ -13,5 +15,31 @@ router.post("/signup", authLimiter, validate(signUpSchema, "body"), signUp);
 router.post("/login", authLimiter, validate(loginSchema, "body"), login);
 router.post("/logout", authMiddleware, logout);
 
+// GitHub OAuth routes
+router.get("/github", passport.authenticate("github", { scope: ["user:email"] }));
+
+router.get(
+  "/github/callback",
+  passport.authenticate("github", { failureRedirect: "/login" }),
+  (req, res) => {
+    // Generate JWT token for the authenticated user
+    const token = jwt.sign(
+      { id: req.user.id, email: req.user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: process.env.JWT_EXPIRES_IN }
+    );
+
+    // Set token in HTTP-only cookie
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+      sameSite: "strict",
+    });
+
+    // Redirect to frontend dashboard
+    res.redirect(`${process.env.CLIENT_ORIGIN}/dashboard`);
+  }
+);
 
 module.exports = router;
