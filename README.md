@@ -1,6 +1,13 @@
-# Authentication with JWT and Session Cookie Practice
+# 🔐 Authentication with JWT and Session Cookie Practice
 
 A Node.js/Express backend application implementing secure authentication using JWT tokens and HTTP-only cookies with Prisma ORM and MySQL database.
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 ## Features
 
@@ -223,8 +230,15 @@ ISC
 
 ## Author
 
-Adarsh Priydarshi
+**Adarsh Priydarshi**
+
+[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/adarshpriydarshi)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/adarshpriydarshi)
 
 ---
 
 **Note:** This is a practice project for learning authentication implementation with JWT and session cookies. For production use, consider additional security measures and thorough testing.
+
+---
+
+### Happy Coding! 🚀
