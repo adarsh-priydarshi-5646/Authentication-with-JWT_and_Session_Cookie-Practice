@@ -9,6 +9,9 @@ const cors = require("cors");
 const userRoute = require('./routes/userRoute.js')
 const authRoutes = require('./routes/authRoute.js')
 
+// Trust proxy for deployment platforms like Render, Heroku, etc.
+app.set('trust proxy', 1);
+
 app.use(express.json());
 app.use(cookieParser());
 
