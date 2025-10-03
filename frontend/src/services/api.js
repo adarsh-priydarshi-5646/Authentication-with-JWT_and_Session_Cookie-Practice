@@ -2,11 +2,17 @@ import axios from 'axios';
 
 // Smart API URL detection based on environment
 const getApiBaseUrl = () => {
+  // Use environment variable first, then fallback to hostname detection
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  // Fallback: detect based on hostname
   const isProduction = window.location.hostname !== 'localhost';
   if (isProduction) {
     return 'https://authentication-with-jwt-and-session.onrender.com';
   }
-  return import.meta.env.VITE_API_URL || 'http://localhost:8080';
+  return 'http://localhost:8080';
 };
 
 const API_BASE_URL = getApiBaseUrl();
