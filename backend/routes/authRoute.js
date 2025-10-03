@@ -39,7 +39,17 @@ router.get(
     });
 
     // Redirect to frontend dashboard
-    const clientOrigin = process.env.CLIENT_ORIGIN || "http://localhost:5173";
+    // Smart origin detection based on environment
+    let clientOrigin;
+    
+    if (process.env.NODE_ENV === 'production') {
+      // Production: use environment variable or default production URL
+      clientOrigin = process.env.CLIENT_ORIGIN || "https://authentication-with-jwt-and-session.vercel.app";
+    } else {
+      // Development: use localhost
+      clientOrigin = "http://localhost:5173";
+    }
+    
     res.redirect(`${clientOrigin}/dashboard`);
   }
 );

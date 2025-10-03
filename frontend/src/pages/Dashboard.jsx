@@ -90,26 +90,23 @@ const Dashboard = () => {
                   alt="Profile" 
                   className="profile-avatar"
                   style={{
-                    width: '80px',
-                    height: '80px',
+                    width: '50px',
+                    height: '50px',
                     borderRadius: '50%',
-                    marginBottom: '15px'
+                    marginBottom: '8px'
                   }}
                 />
               )}
               <div className="user-details">
                 <p><strong>Name:</strong> {user?.name}</p>
                 <p><strong>Email:</strong> {user?.email}</p>
-                <p><strong>Login Method:</strong> {user?.provider === 'github' ? '🐙 GitHub OAuth' : '🔐 Email & Password'}</p>
-                <p><strong>Member Since:</strong> {new Date(user?.createdAt).toLocaleDateString()}</p>
-                <p><strong>User ID:</strong> #{user?.id}</p>
+                <p><strong>Method:</strong> {user?.provider === 'github' ? '🐙 GitHub' : '🔐 Email'}</p>
+                <p><strong>Joined:</strong> {new Date(user?.createdAt).toLocaleDateString()}</p>
               </div>
             </div>
-          </div>
-
-          <div className="info-box" style={{ marginTop: '20px' }}>
-            <h2>🎉 Authentication Successful</h2>
-            <p>You have successfully authenticated with JWT and session cookies.</p>
+            <div style={{ marginTop: '10px', fontSize: '12px', color: '#667eea' }}>
+              🎉 Secure JWT Authentication Active
+            </div>
           </div>
           
           <button onClick={handleLogout} className="logout-button">
