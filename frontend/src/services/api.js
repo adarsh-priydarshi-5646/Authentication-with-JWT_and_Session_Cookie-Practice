@@ -26,6 +26,11 @@ export const authAPI = {
     const response = await api.post('/auth/logout');
     return response.data;
   },
+
+  getProfile: async () => {
+    const response = await api.get('/users/profile');
+    return response.data;
+  },
 };
 
 export default api;

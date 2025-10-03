@@ -1,5 +1,30 @@
 const prisma = require("../config/db.config");
 
+const getProfile = async (req, res) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.user.id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        avatar: true,
+        provider: true,
+        createdAt: true,
+        updatedAt: true
+      }
+    });
+    
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    
+    res.json(user);
+  } catch (error) {
+    console.error('Profile fetch error:', error);
+    res.status(500).json({ message: "Something went wrong" });
+  }
+};
 
 const getUser = async (req, res) => {
   try {
@@ -64,6 +89,7 @@ const deleteUserById = async (req, res) => {
 };
 
 module.exports = {
+  getProfile,
   getUser,
   getUserById,
   updateUserById,

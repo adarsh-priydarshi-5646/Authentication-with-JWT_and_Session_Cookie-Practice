@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import SignUp from './pages/SignUp';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
-import TestConnection from './pages/TestConnection';
+// import TestConnection from './pages/TestConnection'; // For development testing
 import './App.css';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/test" element={<TestConnection />} />
+        {/* <Route path="/test" element={<TestConnection />} /> */}
       </Routes>
     </Router>
   );

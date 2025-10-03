@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const {
+  getProfile,
   getUser,
   getUserById,
   updateUserById,
@@ -9,6 +10,7 @@ const {
 } = require("../controllers/userController.js");
 const authMiddleware = require("../middlewares/authMiddleware.js");
 
+router.get("/profile", authMiddleware, getProfile);
 router.get("/", authMiddleware, getUser);
 router.get("/:id", authMiddleware, getUserById);
 router.put("/:id", authMiddleware, updateUserById);
